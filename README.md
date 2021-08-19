@@ -1,2 +1,2 @@
 # wed-development-studies
-Pracrice through Web Development Course
+Practice through Web Development Course
