@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+div {
+    background-color: #F1F6F9 ;
+}
+h1 {
+    margin: 0;
+}
+
+/*
+#F1F6F9
+#14274E
+#394867
+#9BA4B4
+*/
+
+.top-container {
+    background-color: #14274E;
+    height: 200px;
+    width: 200px;
+}
+.middle-container {
+    background-color: #394867;
+    height: 200px;
+    width: 200px;
+}
+.bottom-container {
+    background-color: #9BA4B4;
+    height: 200px;
+    width: 200px;
+}
+
+#pro {
+    text-decoration: underline;
+}
