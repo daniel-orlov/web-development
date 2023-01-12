@@ -15,20 +15,44 @@ h1 {
 #9BA4B4
 */
 
+.introduction {
+    background-color: #F1F6F9 ;
+    padding: 350px 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #394867;
+    position: relative;
+}
+
 .top-container {
     background-color: #14274E;
     height: 200px;
     width: 200px;
+    position: absolute;
+    top: 100px;
+    left: 120px;
 }
 .middle-container {
     background-color: #394867;
     height: 200px;
     width: 200px;
+    position: absolute;
+    top: 250px;
+    right: 120px;
 }
 .bottom-container {
     background-color: #9BA4B4;
     height: 200px;
     width: 200px;
+    position: absolute;
+    bottom: 110px;
+    left: 320px;
+}
+
+.white-text {
+    color: white;
 }
 
 #pro {
