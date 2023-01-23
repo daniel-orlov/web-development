@@ -1,17 +1,90 @@
 body {
     margin: 0;
+    background-color: #F1F6F9;
+    text-align: center;
 }
-div {
-    background-color: #F1F6F9 ;
-}
+
 h1 {
-    margin: 0;
+    margin: auto;
+    font-size: 5.5rem;
     font-family: 'Iceberg', cursive;
+    line-height: 2;
+}
+h2, p {
+    font-family: Optima, sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 p {
-    font-family: 'Iceland', cursive;
-    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 70%;
+    background: #14274E linear-gradient(to right, #ccc, #14274E, #ccc);
+}
+
+.skills {
+    position: relative;
+}
+
+.skills-grid {
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/*Generic container*/
+.container {
+    background-color: #F1F6F9 ;
+}
+
+.profile {
+    width: 65%;
+    margin: 200px auto;
+    padding: 50px;
+    text-align: left;
+}
+
+.profile-img {
+    height: 300px;
+    width: 300px;
+    border: 1px solid #14274E;
+    float: left;
+    margin: auto 50px auto;
+}
+
+.skill-container {
+    width: 90px;
+    height: 90px;
+    background-color: snow ;
+    border: 1px solid #F1F6F9 ;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.skill-logo {
+    height: 40px;
+    margin: auto;
+    padding: 0;
+}
+
+.social-logo {
+    height: 40px;
+    margin: auto;
+    padding: 10px;}
+
+.footer {
+    margin: auto;
 }
 
 /*
@@ -22,44 +95,44 @@ p {
 */
 
 .introduction {
-    background-color: #F1F6F9 ;
     padding: 25% 0;
     margin: 0;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #394867;
     position: relative;
+    background-color: snow;
 }
 
-.top-container {
-    background-color: #14274E;
+.rounded-square {
+    border-radius: 20%;
+}
+
+/*Square decorations*/
+
+/*Generic*/
+.square-decoration {
     height: 200px;
     width: 200px;
     position: absolute;
+}
+
+.top-square {
+    background-color: #14274E;
     top: 100px;
     left: 120px;
 }
-.middle-container {
+.middle-square {
     background-color: #394867;
-    height: 200px;
-    width: 200px;
-    position: absolute;
     top: 250px;
     right: 120px;
 }
-.bottom-container {
+.bottom-square {
     background-color: #9BA4B4;
-    height: 200px;
-    width: 200px;
-    position: absolute;
     bottom: 110px;
     left: 320px;
 }
 
-.white-text {
-    color: white;
-}
+
 
 #pro {
     text-decoration: underline;
