@@ -1,1 +1,1 @@
-alert("Hello from DOM/index.js file");
+document.querySelector('ul').lastElementChild.textContent = "Long live the DOM!";
