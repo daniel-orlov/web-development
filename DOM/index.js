@@ -1,0 +1,1 @@
+alert("Hello from DOM/index.js file");
