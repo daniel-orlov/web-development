@@ -1,6 +1,5 @@
-// Detecting Button Press
-document.querySelector("button").addEventListener("click", handleClick);
-
-function handleClick() {
-  console.log("I got clicked");
+for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+        console.log("I got clicked");
+    });
 }
