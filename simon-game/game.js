@@ -29,7 +29,13 @@ $(".btn").click(function () {
 
 // Flash the button
 function animatePress(currentColour) {
-    $("#" + currentColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    // Add the pressed class
+    $("#" + currentColour).addClass("pressed");
+
+    // Remove the pressed class after 100ms
+    setTimeout(function () {
+        $("#" + currentColour).removeClass("pressed");
+    }, 100);
 }
 
 // Play the sound
