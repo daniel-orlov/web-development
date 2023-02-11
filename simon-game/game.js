@@ -1,6 +1,7 @@
 let buttonColours = ["red", "blue", "green", "yellow"];
 
 let gamePattern = [];
+let userClickedPattern = [];
 
 function newSequence() {
     let randomNumber = Math.floor(Math.random() * 4);
@@ -21,6 +22,9 @@ $(".btn").click(function () {
     console.log(userChosenColour);
     playSound(userChosenColour);
     animatePress(userChosenColour);
+
+    userClickedPattern.push(userChosenColour);
+    console.log(userClickedPattern);
 });
 
 // Flash the button
