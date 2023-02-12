@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form action="/calculate" method="post">
+        <input type="number" name="num1" placeholder="First Number">
+        <input type="number" name="num2" placeholder="Second Number">
+        <select name="operator">
+            <option>None</option>
+            <option>Add</option>
+            <option>Subtract</option>
+            <option>Multiply</option>
+            <option>Divide</option>
+        </select>
+        <br>
+        <button type="submit" name="submit" value="submit">Calculate</button>
+    </form>
+    <p>The answer is: </p>
+</body>
+</html>
