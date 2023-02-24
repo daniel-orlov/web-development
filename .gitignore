@@ -1,5 +1,6 @@
 #JetBrains
 .idea
+.run
 
 # node modules
 node_modules
