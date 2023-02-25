@@ -49,8 +49,15 @@ app.post('/', (req, res) => {
         })
     });
 
-    request.write(jsonData);
+    response = request.write(jsonData);
     request.end();
+
+    if (response.statusCode === 200) {
+        res.sendFile(__dirname + '/success.html');
+    } else {
+        res.sendFile(__dirname + '/failure.html');
+    }
+
 });
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`));
