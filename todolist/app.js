@@ -18,7 +18,10 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     const item = req.body.newItem;
-    items.push(item);
+
+    if (item !== '') {
+        items.push(item);
+    }
 
     res.redirect('/');
 });
