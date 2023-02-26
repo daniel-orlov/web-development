@@ -5,11 +5,21 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 
+let items = ['Buy Food', 'Cook Food', 'Eat Food'];
+
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
-    const day = getDay();
-    res.render('list', {dayOfWeek: day});
+    res.render('list', {dayOfWeek: getDay(), items: items});
+});
+
+app.post('/', (req, res) => {
+    const item = req.body.newItem;
+    items.push(item);
+    res.render('list', {dayOfWeek: getDay(), items: items});
 });
 
 app.listen(port, () => {
