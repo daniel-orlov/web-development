@@ -4,7 +4,7 @@ const https = require("https");
 
 // Create a new express app
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const listID = process.env.MAILCHIMP_LIST_ID;
 const apiKey = process.env.MAILCHIMP_API_KEY;
 const mailchimpDC = apiKey?.split('-')[1];
