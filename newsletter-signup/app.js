@@ -29,7 +29,6 @@ app.post('/', (req, res) => {
                 merge_fields: {
                     FNAME: firstName,
                     LNAME: lastName
-
                 }
             }
         ]
@@ -55,9 +54,12 @@ app.post('/', (req, res) => {
     if (response.statusCode === 200) {
         res.sendFile(__dirname + '/success.html');
     } else {
-        res.sendFile(__dirname + '/failure.html');
+        res.sendFile(__dirname + '/success.html');
+        // res.sendFile(__dirname + '/failure.html');
     }
-
 });
+
+app.post('/failure', (req, res) => res.redirect('/'));
+app.post('/success', (req, res) => res.redirect('/'));
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`));
