@@ -5,21 +5,26 @@
     <title>To-Do List</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1>Today is <%= dayOfWeek %></h1>
-<h2>My To-Do List</h2>
-<p>Number of items: <%= items.length %></p>
-<ul>
-    <% for (let i = 0; i < items.length; i++) { %>
-        <li><%= items[i] %></li>
-    <% } %>
-</ul>
+<div class="box" id="heading">
+    <h1>Agenda for today, <%= dayOfWeek %></h1>
+</div>
 
-<form action="/" method="POST">
-    <input type="text" name="newItem">
-    <button type="submit">Add</button>
-</form>
+<div class="box" id="list">
+    <p>Total tasks: <%= items.length %></p>
+    <% for (let i = 0; i < items.length; i++) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= items[i] %></p>
+        </div>
+    <% } %>
+
+    <form action="/" method="POST">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit">+</button>
+    </form>
+</div>
 </body>
 </html>
