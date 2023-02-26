@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 
-let items = ['Buy Food', 'Cook Food', 'Eat Food'];
+let items = [];
 
 app.set('view engine', 'ejs');
 
@@ -19,7 +19,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const item = req.body.newItem;
     items.push(item);
-    res.render('list', {dayOfWeek: getDay(), items: items});
+
+    res.redirect('/');
 });
 
 app.listen(port, () => {
