@@ -10,6 +10,14 @@ h1 {
   padding: 10px;
 }
 
+h2 {
+  margin: 0;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 200;
+  color: #00204a;
+}
+
 .box {
   max-width: 400px;
   margin: 50px auto;
