@@ -13,6 +13,7 @@
 </div>
 
 <div class="box" id="list">
+    <h2><%= listHeading %></h2>
     <p>Total tasks: <%= items.length %></p>
     <% for (let i = 0; i < items.length; i++) { %>
         <div class="item">
@@ -23,7 +24,7 @@
 
     <form action="/" method="POST">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit">+</button>
+        <button type="submit" name="list" value=<%= listHeading %>>+</button>
     </form>
 </div>
 </body>
