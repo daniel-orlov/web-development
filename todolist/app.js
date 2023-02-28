@@ -8,8 +8,8 @@ const port = process.env.PORT || 3000;
 let items = [];
 let workItems = [];
 
-const mainList = 'Main List';
-const workList = 'Work List';
+const mainList = 'Main';
+const workList = 'Work';
 
 app.set('view engine', 'ejs');
 
@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('list', {dayOfWeek: getDay(),  listHeading: mainList, items: items});
+    res.render('list', {dayOfWeek: getDay(), listHeading: mainList, items: items});
 });
 
 app.post('/', (req, res) => {
     const item = req.body.newItem;
 
     if (item !== '') {
-        if (req.body.list === workList) {
+        if (req.body.listName === workList) {
             workItems.push(item);
             res.redirect('/work');
         } else {
