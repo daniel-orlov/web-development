@@ -6,8 +6,8 @@ const date = require(__dirname + '/date.js');
 const app = express();
 const port = process.env.PORT || 3000;
 
-let items = [];
-let workItems = [];
+const items = [];
+const workItems = [];
 
 const mainList = 'Main';
 const workList = 'Work';

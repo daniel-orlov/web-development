@@ -1,4 +1,4 @@
-exports.getDay = function() {
+exports.getDay = function () {
     const today = new Date();
     const options = {
         weekday: 'long',
