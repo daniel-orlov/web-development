@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + '/date.js');
 
 // Create a new express app
 const app = express();
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('list', {dayOfWeek: getDay(), listHeading: mainList, items: items});
+    res.render('list', {dayOfWeek: date.getDay(), listHeading: mainList, items: items});
 });
 
 app.post('/', (req, res) => {
@@ -35,7 +36,7 @@ app.post('/', (req, res) => {
 });
 
 app.get('/work', (req, res) => {
-    res.render('list', {dayOfWeek: getDay(), listHeading: workList, items: workItems});
+    res.render('list', {dayOfWeek: date.getDay(), listHeading: workList, items: workItems});
 });
 
 app.post('/work', (req, res) => {
@@ -48,16 +49,10 @@ app.post('/work', (req, res) => {
     res.redirect('/work');
 });
 
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
-
-function getDay() {
-    const today = new Date();
-    const options = {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long'
-    };
-    return today.toLocaleDateString('en-US', options);
-}
