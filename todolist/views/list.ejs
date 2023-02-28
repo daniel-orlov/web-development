@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>To-Do List</title>
+<%- include('partials/header.ejs') -%>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
 <body>
 <div class="box" id="heading">
     <h1>Agenda for today, <%= dayOfWeek %></h1>
@@ -28,4 +21,5 @@
     </form>
 </div>
 </body>
-</html>
+
+<%- include('partials/footer.ejs') -%>
