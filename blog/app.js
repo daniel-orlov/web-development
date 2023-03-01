@@ -50,6 +50,13 @@ app.post("/compose", function (req, res) {
         content: req.body.content
     };
 
+    // Verify if post already exists
+    posts.forEach(function (storedPost) {
+        if (storedPost.slug === post.slug) {
+            post.slug = post.slug + "-" + Math.floor(Math.random() * 10000000);
+        }
+    });
+
     posts.push(post);
 
     res.redirect("/");
