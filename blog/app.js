@@ -31,6 +31,10 @@ app.get("/contacts", function (req, res) {
     res.render("contacts", {contactsContent: contactsContent});
 });
 
+app.get("/compose", function (req, res) {
+    res.render("compose");
+});
+
 app.listen(port, function () {
     console.log(`Server listening on http://localhost:${port}`)
 });
