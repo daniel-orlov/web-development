@@ -15,19 +15,23 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Handlers
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     res.render("home", {homeStartingContent: homeStartingContent});
 });
 
-app.get("/about", function(req, res) {
+app.get("/home", function (req, res) {
+    res.redirect("/");
+});
+
+app.get("/about", function (req, res) {
     res.render("about", {aboutContent: aboutContent});
 });
 
-app.get("/contacts", function(req, res) {
+app.get("/contacts", function (req, res) {
     res.render("contacts", {contactsContent: contactsContent});
 });
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log(`Server listening on http://localhost:${port}`)
 });
 
