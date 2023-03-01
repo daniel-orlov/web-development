@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Handlers
+// Home
 app.get("/", function (req, res) {
     res.render("home", {homeStartingContent: homeStartingContent, posts: posts});
 });
@@ -25,14 +26,17 @@ app.get("/home", function (req, res) {
     res.redirect("/");
 });
 
+// About
 app.get("/about", function (req, res) {
     res.render("about", {aboutContent: aboutContent});
 });
 
+// Contacts
 app.get("/contacts", function (req, res) {
     res.render("contacts", {contactsContent: contactsContent});
 });
 
+// Compose
 app.get("/compose", function (req, res) {
     res.render("compose");
 });
@@ -40,12 +44,26 @@ app.get("/compose", function (req, res) {
 app.post("/compose", function (req, res) {
     const post = {
         title: req.body.title,
+        slug: req.body.title.toLowerCase().replace(/ /g, "-"),
         content: req.body.content
     };
 
     posts.push(post);
 
     res.redirect("/");
+});
+
+// Posts
+app.get("/posts/:postName", function (req, res) {
+    const requestedTitle = req.params.postName;
+
+    posts.forEach(function (post) {
+        const storedTitle = post.slug;
+
+        if (storedTitle === requestedTitle) {
+            res.render("post", {title: post.title, content: post.content});
+        }
+    });
 });
 
 app.listen(port, function () {
