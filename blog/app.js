@@ -9,6 +9,8 @@ const contactsContent = "Scelerisque eleifend donec pretium vulputate sapien. Rh
 const app = express();
 const port = process.env.PORT || 3000;
 
+const posts = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -16,7 +18,7 @@ app.use(express.static("public"));
 
 // Handlers
 app.get("/", function (req, res) {
-    res.render("home", {homeStartingContent: homeStartingContent});
+    res.render("home", {homeStartingContent: homeStartingContent, posts: posts});
 });
 
 app.get("/home", function (req, res) {
@@ -33,6 +35,17 @@ app.get("/contacts", function (req, res) {
 
 app.get("/compose", function (req, res) {
     res.render("compose");
+});
+
+app.post("/compose", function (req, res) {
+    const post = {
+        title: req.body.title,
+        content: req.body.content
+    };
+
+    posts.push(post);
+
+    res.redirect("/");
 });
 
 app.listen(port, function () {
