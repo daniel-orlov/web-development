@@ -11,6 +11,7 @@ const fruitSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Please check your data entry, no name specified!'],
+        unique: true,
     },
     rating: {
         type: Number,
@@ -23,12 +24,12 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 const fruit = new Fruit({
-    name: 'Pineapple',
-    rating: 10,
-    review: '10 out of 10, would eat again',
+    name: 'Peach',
+    rating: 9,
+    review: 'Looks great, tastes great, feels great, might make you all sticky though'
 });
 
-fruit.save().then(r => console.log("Saved a new fruit: " + r));
+// fruit.save().then(r => console.log("Saved a new fruit: " + r));
 
 const personSchema = new mongoose.Schema({
     name: String,
@@ -68,4 +69,8 @@ const banana = new Fruit({
 
 Fruit.insertMany([kiwi, orange, banana]).then(r => console.log(r));
 
-Fruit.find().then(r => console.log(r));
+Fruit.find().then(r => console.log("Found all the fruits:" + r));
+
+Fruit.updateOne({ name: 'Peach' }, {review: 'Amazing shape and taste.'} ).then(r => console.log(r));
+
+Fruit.deleteOne({ name: 'Peach' }).then(r => console.log(r));
