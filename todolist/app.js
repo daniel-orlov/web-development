@@ -113,7 +113,6 @@ async function deleteItem(id) {
 }
 
 // --- Helper Functions ---
-
 async function getItemsNames(listId) {
     let itemsNames = [];
 
