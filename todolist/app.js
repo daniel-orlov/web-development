@@ -54,12 +54,11 @@ app.post('/', (req, res) => {
     const item = req.body.newItem;
 
     if (item !== '') {
-        if (req.body.listName === lists.MAIN) {
-            createItem(item, lists.MAIN).then(r => console.log("created item: " + r)).catch(err => console.error(err));
-            res.redirect('/');
-        } else {
-            console.log("Unknown list name: " + req.body.listName);
-        }
+        const listID = req.body.listName
+        createItem(item, listID).then(r => console.log("created item: " + r)).catch(err => console.error(err));
+        res.redirect('/' + listID);
+    } else {
+        res.redirect('/');
     }
 });
 
@@ -76,6 +75,24 @@ app.get('/about', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
+});
+
+// Dynamic route for custom lists
+app.get('/:customListName', (req, res) => {
+    const customListName = req.params.customListName;
+
+    addDefaultItems(customListName)
+        .then(
+            // Wait for the default items to be added before rendering the page
+            setTimeout(() => {
+                    getItems(customListName)
+                        .then(items => {
+                            res.render('list', {dayOfWeek: date.getDay(), listHeading: customListName, items: items});
+                        })
+                        .catch(err => console.error(err));
+                },
+                1000)
+        ).catch(err => console.error(err));
 });
 
 // --- MongoDB Functions ---
