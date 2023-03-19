@@ -9,7 +9,6 @@ const port = process.env.PORT || 3000;
 
 const lists = {
     MAIN: 'Main',
-    WORK: 'Work',
 }
 
 // Connect to MongoDB
@@ -42,11 +41,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    addDefaultItems(lists.MAIN).then(r => console.log(r)).catch(err => console.error(err));
+    addDefaultItems(lists.MAIN).then().catch(err => console.error(err));
 
-    getItemsNames(lists.MAIN)
-        .then(itemNames => {
-            res.render('list', {dayOfWeek: date.getDay(), listHeading: lists.MAIN, items: itemNames});
+    getItems(lists.MAIN)
+        .then(items => {
+            res.render('list', {dayOfWeek: date.getDay(), listHeading: lists.MAIN, items: items});
         })
         .catch(err => console.error(err));
 });
@@ -55,34 +54,20 @@ app.post('/', (req, res) => {
     const item = req.body.newItem;
 
     if (item !== '') {
-        if (req.body.listName === lists.WORK) {
-            createItem(item, lists.WORK).then(r => console.log(r)).catch(err => console.error(err));
-            res.redirect('/work');
-        } else {
-            createItem(item, lists.MAIN).then(r => console.log(r)).catch(err => console.error(err));
+        if (req.body.listName === lists.MAIN) {
+            createItem(item, lists.MAIN).then(r => console.log("created item: " + r)).catch(err => console.error(err));
             res.redirect('/');
+        } else {
+            console.log("Unknown list name: " + req.body.listName);
         }
     }
 });
 
-app.get('/work', (req, res) => {
-    addDefaultItems(lists.WORK).then(r => console.log(r)).catch(err => console.error(err));
+app.post('/delete', (req, res) => {
+    const itemID = req.body.checkbox;
+    deleteItem(itemID).then(r => console.log("deleted item: " + r)).catch(err => console.error(err));
 
-    getItemsNames(lists.WORK)
-        .then(workItemsNames => {
-            res.render('list', {dayOfWeek: date.getDay(), listHeading: lists.WORK, items: workItemsNames});
-        })
-        .catch(err => console.error(err));
-});
-
-app.post('/work', (req, res) => {
-    const item = req.body.newItem;
-
-    if (item !== '') {
-        createItem(item, lists.WORK).then(r => console.log(r)).catch(err => console.error(err));
-    }
-
-    res.redirect('/work');
+    res.redirect('/');
 });
 
 app.get('/about', (req, res) => {
@@ -112,31 +97,6 @@ async function deleteItem(id) {
     return Item.findByIdAndRemove(id);
 }
 
-// --- Helper Functions ---
-async function getItemsNames(listId) {
-    let itemsNames = [];
-
-    const items = await getItems(listId)
-        .then(r => {
-            return r;
-        })
-        .catch(err => {
-            console.error(err);
-        });
-
-    console.log("getItemsNames: got " + items.length + " items");
-    console.log(items);
-
-    items.forEach(item => {
-        itemsNames.push(item.name);
-    });
-
-    console.log("getItemsNames: got " + itemsNames.length + " item names");
-    console.log(itemsNames);
-
-    return itemsNames;
-}
-
 // --- Initial Data ---
 const addDefaultItems = async (listId) => {
     const items = await getItems(listId);
@@ -157,16 +117,11 @@ const addDefaultItems = async (listId) => {
             })
         ];
 
-
         defaultItems.forEach(item => {
             createItem(item.name, item.listID).then(r => console.log(r)).catch(err => console.error(err));
         });
 
-        console.log("Default items added");
-
-        return;
+        console.log("Default items (count: " + defaultItems.length + ") added to list: " + listId);
     }
-
-    console.log("Default items already exist");
 }
 
