@@ -41,13 +41,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    addDefaultItems(lists.MAIN).then().catch(err => console.error(err));
+    addDefaultItems(lists.MAIN).then(
+        setTimeout(() => {
+                getItems(lists.MAIN)
+                    .then(items => {
+                        res.render('list', {dayOfWeek: date.getDay(), listHeading: lists.MAIN, items: items});
+                    })
+                    .catch(err => console.error(err));
+            },
+            1000)
+    ).catch(err => console.error(err));
 
-    getItems(lists.MAIN)
-        .then(items => {
-            res.render('list', {dayOfWeek: date.getDay(), listHeading: lists.MAIN, items: items});
-        })
-        .catch(err => console.error(err));
+    console.log("Getting items for list: " + req.body.listName);
 });
 
 app.post('/', (req, res) => {
@@ -66,7 +71,9 @@ app.post('/delete', (req, res) => {
     const itemID = req.body.checkbox;
     deleteItem(itemID).then(r => console.log("deleted item: " + r)).catch(err => console.error(err));
 
-    res.redirect('/');
+    const listID = req.body.listName
+
+    res.redirect('/' + listID);
 });
 
 app.get('/about', (req, res) => {
