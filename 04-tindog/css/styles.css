@@ -1,0 +1,187 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600
+}
+
+p {
+    color: #8f8f8f;
+}
+
+/* Containers */
+
+.container-fluid {
+    padding: 7% 15%;
+}
+
+/* Sections */
+
+.colored-section {
+    background-color: #ff4c68;
+    color: white;
+}
+
+.white-section {
+    background-color: white;
+}
+
+/* Headings */
+
+.big-heading {
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 600
+}
+
+/*Navigation Bar*/
+
+.navbar {
+    padding: 0 0 4.5rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+/* Title */
+
+#title .container-fluid {
+    padding: 3% 15% 7%;
+    text-align: left;
+}
+
+.download-button {
+    margin: 5% 3% 5% 0;
+}
+
+.iphone-mockup {
+    transform: rotate(17deg);
+    position: absolute;
+    right: 19%;
+    scale: 80%;
+}
+
+/* Features */
+
+#features {
+    background-color: white;
+    position: relative;
+}
+
+.feature-box {
+    padding: 0 5%;
+}
+
+.feature-icon {
+    color: #ef8172;
+    margin: 0 0 1rem 0;
+}
+
+.feature-icon:hover {
+    color: #ff4c68;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Testimonials */
+
+#testimonials {
+    background-color: #ef8172;
+}
+
+.testimonial-text {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 600
+}
+
+.testimonial-image {
+    width: 10%;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+/* Press */
+
+#press {
+    padding: 0 0 4% 0;
+    background-color: #ef8172;
+}
+
+.press-image {
+    width: 15%;
+    margin: 20px 20px 50px;
+}
+
+/* Pricing */
+#pricing {
+    padding: 100px;
+}
+
+.price-text {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 600
+}
+
+.pricing-column {
+    padding: 3% 2%;
+}
+
+.card-header {
+    padding: 1rem 0;
+}
+
+/* Call to action */
+
+/* Footer */
+
+.social-row {
+    margin: 1% 0;
+}
+
+.social-logo {
+    width: 30px;
+    margin: 0 1%;
+}
+
+/* Tablet and Mobile Responsive */
+
+@media (max-width: 1105px) {
+    .iphone-mockup {
+        position: static;
+        transform: none;
+    }
+
+    #title {
+        text-align: center
+    }
+
+    .container-fluid {
+        padding: 3% 5%;
+    }
+}
