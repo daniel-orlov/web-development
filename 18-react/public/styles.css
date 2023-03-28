@@ -1,12 +1,5 @@
-.heading {
-    color: #404B69;
+.app-header {
 }
 
-.rounded-square {
-    border-radius: 20%;
-}
-
-.image {
-    height: 100px;
-    width: 100px;
+.app-footer{
 }
