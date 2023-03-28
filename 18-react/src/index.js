@@ -1,23 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const listType = "list"
-const itemType = "circle"
+const author = "Dan";
+const currentYear = 2023
+// For some reason the below code doesn't work. Will investigate later.
+// const currentYear = Date().getFullYear();
 
 ReactDOM.render(
     <div>
-        <h1>A {`${listType} of ${itemType}s`}</h1>
-        <ul>
-            <li>
-                First {itemType}
-            </li>
-            <li>
-                Second {itemType}
-            </li>
-            <li>
-                Third {itemType}
-            </li>
-        </ul>
+        <p>Created by {author}.</p>
+        <p>© {currentYear}</p>
     </div>,
     document.getElementById("root")
 );
