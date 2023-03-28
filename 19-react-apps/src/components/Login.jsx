@@ -2,21 +2,25 @@ import {Input} from "./Input";
 import {useState} from "react";
 
 export function Login() {
+    const defaultButtonText = "Click me, please";
 
-    const [formHeading, setFormHeading] = useState("Login");
+    const [buttonText, setButtonText] = useState(defaultButtonText);
 
-    const handleClick = () => {
-        setFormHeading("Welcome");
-        console.log("clicked");
+    const handleMouseOver = () => {
+        setButtonText("Go ahead, what are you waiting for?");
+    }
+
+    const handleMouseOut = () => {
+        setButtonText(defaultButtonText);
     }
 
     return (
         <form className="form">
-            <h1>{formHeading}</h1>
             <Input type="text" placeholder="Username"/>
             <Input type="password" placeholder="Password"/>
             <button type="submit">Login</button>
-            <button type="button" onClick={handleClick}>Click me</button>
+            <br/>
+            <button type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>{buttonText}</button>
         </form>
     )
 }
