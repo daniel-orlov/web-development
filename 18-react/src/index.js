@@ -25,9 +25,13 @@ const greet = function () {
     }
 }
 
+function Heading() {
+    return <h1 className="heading" style={greetingStyle}>{greet()}</h1>
+}
+
 ReactDOM.render(
     <div>
-        <h1 className="heading" style={greetingStyle}>{greet()}</h1>
+        <Heading/>
         <p contentEditable="true" spellCheck="false">Editable content on this line</p>
         <img className="rounded-square image" src="react.png" alt="react logo"/>
         <p style={customStyle}>Some bordered pink text that is hard to read</p>
