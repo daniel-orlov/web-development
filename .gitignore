@@ -1,5 +1,6 @@
 #JetBrains
-.idea
+.idea/*
+!.idea/rcb-settings.xml
 .run
 
 # node modules
