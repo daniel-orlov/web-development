@@ -1,16 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const author = "Dan";
-const currentDate = Date();
-const currentYear = currentDate.getFullYear();
-
-console.log(currentYear);
-
 ReactDOM.render(
     <div>
-        <p>Created by {author}.</p>
-        <p>© {currentDate.getFullYear()}</p>
+        <h1 className="heading">Big letters here</h1>
+        <p contentEditable="true" spellCheck="false">Editable content on this line</p>
     </div>,
     document.getElementById("root")
 );
