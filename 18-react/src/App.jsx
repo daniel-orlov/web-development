@@ -1,6 +1,6 @@
-import Heading from "./Heading";
-import List from "./List";
-import BorderedText from "./BorderedText";
+import Heading from "./components/Heading";
+import List from "./components/List";
+import BorderedText from "./components/BorderedText";
 
 function App() {
     return (
