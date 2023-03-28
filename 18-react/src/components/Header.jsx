@@ -1,4 +1,4 @@
-function Heading() {
+function Header() {
     return (
         <h1 className="heading" style={greetingStyle}>{greet()}</h1>
     )
@@ -22,4 +22,4 @@ const greet = function () {
     }
 }
 
-export default Heading;
+export default Header;

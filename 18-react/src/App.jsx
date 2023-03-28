@@ -1,14 +1,13 @@
-import Heading from "./components/Heading";
-import List from "./components/List";
-import BorderedText from "./components/BorderedText";
+import Header from "./components/Header";
+import Note from "./components/Note";
+import Footer from "./components/Footer";
 
 function App() {
     return (
         <div>
-            <Heading/>
-            <List/>
-            <img className="rounded-square image" src="react.png" alt="react logo"/>
-            <BorderedText/>
+            <Header/>
+            <Note/>
+            <Footer/>
         </div>
     )
 }
