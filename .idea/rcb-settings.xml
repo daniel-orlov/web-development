@@ -4,6 +4,7 @@
     <option name="devServerConfigs">
       <DevServerState>
         <option name="packageJsonPath" value="$PROJECT_DIR$/19-react-apps/package.json" />
+        <option name="port" value="3001" />
         <option name="scriptName" value="test" />
       </DevServerState>
     </option>

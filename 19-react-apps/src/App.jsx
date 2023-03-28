@@ -1,9 +1,12 @@
-function App() {
+import {Login} from "./components/Login";
+
+let isLogged = false;
+
+export function App() {
     return (
-        <div className="App">
-            <h1>React App</h1>
+        <div className="container">
+            <h1>Hello</h1>
+            <Login />
         </div>
     )
 }
-
-export default App;
