@@ -6,7 +6,7 @@ function App() {
     return (
         <div>
             <Header/>
-            <Note/>
+            <Note heading={"This is a note heading"} content={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias asperiores blanditiis consequatur dolor doloribus, ducimus excepturi, fugiat id impedit inventore laudantium molestias nemo numquam pariatur, porro quibusdam quod veniam."}/>
             <Footer/>
         </div>
     )
