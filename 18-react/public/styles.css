@@ -1,3 +1,12 @@
 .heading {
     color: #404B69;
 }
+
+.rounded-square {
+    border-radius: 20%;
+}
+
+.image {
+    height: 100px;
+    width: 100px;
+}
