@@ -4,7 +4,7 @@ function Heading() {
     )
 }
 
-const greetingStyle = {
+let greetingStyle = {
     color: "black"
 }
 
