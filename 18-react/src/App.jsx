@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import {newNote} from "./components/Note";
+import Note from "./components/Note";
 import Footer from "./components/Footer";
 
 const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias asperiores blanditiis consequatur dolor doloribus, ducimus excepturi, fugiat id impedit inventore laudantium molestias nemo numquam pariatur, porro quibusdam quod veniam."
@@ -15,7 +15,13 @@ function App() {
     return (
         <div>
             <Header/>
-            {notes.map(newNote)}
+            {notes.map(note => (
+                <Note
+                    key={note.id}
+                    heading={note.heading}
+                    content={note.content}
+                />
+            ))}
             <Footer/>
         </div>
     )
