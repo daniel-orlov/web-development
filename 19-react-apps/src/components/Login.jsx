@@ -21,29 +21,19 @@ export function Login() {
 
     const changeHandler = (event) => {
         const {value, name} = event.target;
-
-        if (name === "fName") {
-            setFullName( prevValue => {
-                return {
-                    fName: value,
-                    lName: prevValue.lName
-                }
-            })
-        } else if (name === "lName") {
-            setFullName( prevValue => {
-                return {
-                    fName: prevValue.fName,
-                    lName: value,
-                }
-            })
-        }
+        setFullName( prevValue => {
+            return {
+                ...prevValue,
+                [name]: value,
+            }
+        })
     }
 
     return (
         <div>
             <h1>Hello {fullName.fName} {fullName.lName}</h1>
-            <Input type="text" placeholder="First name" onChangeHanlder={changeHandler} value={fullName.fName}/>
-            <Input type="text" placeholder="Last name" onChangeHanlder={changeHandler} value={fullName.lName}/>
+            <Input type="text" placeholder="First name" onChangeHanlder={changeHandler} value={fullName.fName} name={"fName"}/>
+            <Input type="text" placeholder="Last name" onChangeHanlder={changeHandler} value={fullName.lName} name={"lName"}/>
             <Input type="password" placeholder="Password" onChangeHanlder={(event) => console.log(event.target.value)}/>
             <button>Login</button>
             <br/>
