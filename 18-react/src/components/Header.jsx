@@ -1,6 +1,8 @@
 function Header() {
     return (
-        <h1 className="app-header">{`${greet()} Welcome to the Keeper App`}</h1>
+        <header>
+            <h1>{`${greet()} Welcome to the Keeper App`}</h1>
+        </header>
     )
 }
 

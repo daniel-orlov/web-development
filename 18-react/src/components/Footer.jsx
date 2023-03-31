@@ -5,13 +5,11 @@ const getYear = function () {
 }
 
 function Footer() {
-    return (
-        <footer>
-            <div className="app-footer">
-                Copyright © {getYear()}
-            </div>
-        </footer>
-    )
+    return (<footer>
+        <p>
+            Copyright © {getYear()}
+        </p>
+    </footer>)
 }
 
 export default Footer;
