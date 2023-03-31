@@ -1,5 +1,6 @@
 import {Input} from "./Input";
 import {useState} from "react";
+import {TodoItem} from "./TodoItem";
 
 export function TodoList() {
     const [newItem, setNewItem] = useState("");
@@ -29,7 +30,7 @@ export function TodoList() {
             <button type="button" onClick={addItem}>Add</button>
             <ul>
                 {itemsList.map(item => (
-                    <li>{item}</li>
+                    <TodoItem text={item}/>
                 ))}
             </ul>
         </div>
