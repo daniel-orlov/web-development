@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1>{`${greet()} Welcome to the Keeper App`}</h1>
+            <h1>{`Keepär`}</h1>
         </header>
     )
 }
