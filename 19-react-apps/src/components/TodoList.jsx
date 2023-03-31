@@ -23,14 +23,22 @@ export function TodoList() {
         }
     }
 
+    const deleteItem = (itemIndex) => {
+        console.log("delete item")
+        console.log(itemIndex)
+
+        setItemsList(prevItemsList => (
+            prevItemsList.filter((_, index) => index !== itemIndex)
+        ))
+    }
     return (
         <div>
             <h1>To-do List</h1>
             <Input type="text" placeholder="Type here..." onChangeHanlder={changeHandler} value={newItem} name="item"/>
             <button type="button" onClick={addItem}>Add</button>
             <ul>
-                {itemsList.map(item => (
-                    <TodoItem text={item}/>
+                {itemsList.map((item, index) => (
+                    <TodoItem key={index} id={index} text={item} onClick={deleteItem}/>
                 ))}
             </ul>
         </div>
