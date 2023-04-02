@@ -1,9 +1,14 @@
 import "./App.css";
-import {useEffect, useState} from "react";
+import {useEffect, useReducer} from "react";
 
 function App() {
-    const [tech, setTech] = useState({
+    const [tech, setTech] = useReducer((state, newState) => ({...state, ...newState}), {
         frontendFramework: "React", backendLanguage: "Node", haveTried: false
+    }, () => {
+        const localData = localStorage.getItem("tech");
+        return localData ? JSON.parse(localData) : {
+            frontendFramework: "React", backendLanguage: "Node", haveTried: false
+        }
     })
 
     useEffect(() => {
