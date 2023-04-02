@@ -3,7 +3,7 @@ export function Main(props) {
         <section>
             Here we cook:
             <ul>
-                {props.dishes.map((dish, i) => <li key={i}>{dish}</li>)}
+                {props.dishes.map(dish => <li key={dish.id}>{dish.title}</li>)}
             </ul>
         </section>
     </>)

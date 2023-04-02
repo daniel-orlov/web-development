@@ -5,11 +5,13 @@ import {Footer} from "./components/Footer/Footer";
 export function App() {
     const name = "Dan";
 
-    const dishes = ["Salmon", "Salad", "Seaweed",];
+    const dishes = ["Salmon", "Salad", "Seaweed", "Sushi", "Sashimi"];
+
+    const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}));
 
     return (<>
         <Header name={name}/>
-        <Main dishes={dishes}/>
+        <Main dishes={dishObjects}/>
         <Footer name={name} year={getYear()}/>
     </>)
 }
