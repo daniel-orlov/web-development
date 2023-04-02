@@ -8,6 +8,10 @@ export function App() {
     return (<>
             <Header name={name}/>
             <Main/>
-            <Footer name={name}/>
+            <Footer name={name} year={getYear()}/>
         </>)
+}
+
+function getYear() {
+    return new Date().getFullYear();
 }
