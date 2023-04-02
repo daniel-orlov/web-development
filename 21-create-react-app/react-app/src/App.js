@@ -32,6 +32,14 @@ function App() {
         <h3>{tech.haveTried ? " Awesome! You have tried this stack combo." : "Have you tried this stack combination?"}</h3>
         <input type="checkbox" value={tech.haveTried} onChange={() => setTech({...tech, haveTried: !tech.haveTried})}/>
         <label>Yes</label>
+
+        <form>
+            <h4>Not on the list? Add your own!</h4>
+            <input type="text" placeholder="Frontend Framework" value={tech.frontendFramework}
+                   onChange={(e) => setTech({...tech, frontendFramework: e.target.value})}/>
+            <input type="text" placeholder="Backend Language" value={tech.backendLanguage}
+                   onChange={(e) => setTech({...tech, backendLanguage: e.target.value})}/>
+        </form>
     </div>);
 }
 
