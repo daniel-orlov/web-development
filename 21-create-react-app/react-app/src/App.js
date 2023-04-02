@@ -1,6 +1,19 @@
 import "./App.css";
 import {useEffect, useReducer, useState} from "react";
 
+const GitHubUser = (props) => {
+    return <>
+        <h2>My GitHub Profile</h2>
+        <div className="github-profile">
+            <img height="200" src={props.data.avatar_url} alt="GitHub Profile Picture"/>
+            <div className="info">
+                <div className="name">{props.data.name}</div>
+                <div className="company">{props.data.company}</div>
+            </div>
+        </div>
+    </>
+}
+
 function App() {
     const [tech, setTech] = useReducer((state, newState) => ({...state, ...newState}), {
         frontendFramework: "React", backendLanguage: "Node", haveTried: false
@@ -51,6 +64,16 @@ function App() {
         resetColorHex();
     }
 
+    const userAPIEndpoint = "https://api.github.com/users/daniel-orlov";
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        fetch(userAPIEndpoint)
+            .then(response => response.json())
+            .then(data => setUserData(data))
+    }, [])
+
+
     return (<div className="App">
         <h1>Hello from {tech.frontendFramework}</h1>
         {frontendFrameworks.map((framework) => {
@@ -85,6 +108,7 @@ function App() {
             <button type="submit">Submit</button>
         </form>
 
+        {userData && <GitHubUser data={userData}/>}
     </div>);
 }
 
