@@ -5,9 +5,8 @@ function App() {
     const [tech, setTech] = useState("React")
 
     useEffect(() => {
-        console.log("Component mounted")
         console.log("Tech: ", tech)
-    }, [])
+    }, [tech])
 
     return (<div className="App">
         <h1>Hello from {tech}</h1>
