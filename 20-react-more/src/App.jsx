@@ -1,7 +1,11 @@
+import {Header} from "./components/Header/Header";
+import {Main} from "./components/Main/Main";
+
 export function App() {
     return (
         <>
-            <h1>React More</h1>
+            <Header/>
+            <Main/>
         </>
     )
 }
