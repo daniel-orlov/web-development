@@ -1,7 +1,7 @@
-export function Header() {
+export function Header(props) {
     return (
         <>
-            <h1>Dan's Kitchen</h1>
+            <h1>{props.name}'s Kitchen</h1>
         </>
     )
 }

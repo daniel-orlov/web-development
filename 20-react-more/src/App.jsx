@@ -4,7 +4,7 @@ import {Main} from "./components/Main/Main";
 export function App() {
     return (
         <>
-            <Header/>
+            <Header name={"Dan"}/>
             <Main/>
         </>
     )
