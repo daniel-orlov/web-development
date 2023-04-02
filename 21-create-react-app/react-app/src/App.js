@@ -2,17 +2,24 @@ import "./App.css";
 import {useEffect, useState} from "react";
 
 function App() {
-    const [tech, setTech] = useState("React")
+    const [frontendFramework, setFrontendFramework] = useState("React")
+    const [backendLanguage, setBackendLanguage] = useState("Node")
 
     useEffect(() => {
-        console.log("Tech: ", tech)
-    }, [tech])
+        console.log("Frontend Framework: ", frontendFramework)
+        console.log("Backend Language: ", backendLanguage)
+    }, [frontendFramework, backendLanguage])
 
     return (<div className="App">
-        <h1>Hello from {tech}</h1>
-        <button onClick={() => setTech("React")}>React</button>
-        <button onClick={() => setTech("Vue")}>Vue</button>
-        <button onClick={() => setTech("Svelte")}>Svelte</button>
+        <h1>Hello from {frontendFramework}</h1>
+        <button onClick={() => setFrontendFramework("React")}>React</button>
+        <button onClick={() => setFrontendFramework("Vue")}>Vue</button>
+        <button onClick={() => setFrontendFramework("Svelte")}>Svelte</button>
+
+        <h2>We are using {backendLanguage} in the Backend</h2>
+        <button onClick={() => setBackendLanguage("Node")}>Node</button>
+        <button onClick={() => setBackendLanguage("Go")}>Go</button>
+        <button onClick={() => setBackendLanguage("Python")}>Python</button>
     </div>);
 }
 
