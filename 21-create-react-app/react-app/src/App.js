@@ -66,11 +66,16 @@ function App() {
 
     const userAPIEndpoint = "https://api.github.com/users/daniel-orlov";
     const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+        setLoading(true);
         fetch(userAPIEndpoint)
             .then(response => response.json())
             .then(data => setUserData(data))
+            .then(() => setLoading(false))
+            .catch(error => setError(error))
     }, [])
 
 
@@ -108,6 +113,8 @@ function App() {
             <button type="submit">Submit</button>
         </form>
 
+        {loading && <div>Loading...</div>}
+        {error && <div>{error.message}</div>}
         {userData && <GitHubUser data={userData}/>}
     </div>);
 }
