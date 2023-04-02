@@ -3,13 +3,15 @@ import {useEffect, useState} from "react";
 
 function App() {
     const [tech, setTech] = useState({
-        frontendFramework: "React", backendLanguage: "Node"
+        frontendFramework: "React", backendLanguage: "Node", haveTried: false
     })
 
     useEffect(() => {
         console.log("Frontend Framework: ", tech.frontendFramework)
         console.log("Backend Language: ", tech.backendLanguage)
+        console.log("Have Tried: ", tech.haveTried)
     }, [tech])
+
 
     return (<div className="App">
         <h1>Hello from {tech.frontendFramework}</h1>
@@ -21,6 +23,10 @@ function App() {
         <button onClick={() => setTech({...tech, backendLanguage: "Node"})}>Node</button>
         <button onClick={() => setTech({...tech, backendLanguage: "Python"})}>Python</button>
         <button onClick={() => setTech({...tech, backendLanguage: "Go"})}>Go</button>
+
+        <h3>{tech.haveTried ? " Awesome! You have tried this stack combo." : "Have you tried this stack combination?"}</h3>
+        <input type="checkbox" value={tech.haveTried} onChange={() => setTech({...tech, haveTried: !tech.haveTried})}/>
+        <label>Yes</label>
     </div>);
 }
 
