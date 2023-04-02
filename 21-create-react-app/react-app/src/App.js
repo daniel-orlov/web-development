@@ -1,8 +1,13 @@
 import "./App.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
     const [tech, setTech] = useState("React")
+
+    useEffect(() => {
+        console.log("Component mounted")
+        console.log("Tech: ", tech)
+    }, [])
 
     return (<div className="App">
         <h1>Hello from {tech}</h1>
