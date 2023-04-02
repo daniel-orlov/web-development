@@ -1,5 +1,5 @@
 import "./App.css";
-import {useEffect, useReducer, useRef, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 
 function App() {
     const [tech, setTech] = useReducer((state, newState) => ({...state, ...newState}), {
@@ -31,16 +31,24 @@ function App() {
         name: "Vue", id: 2
     }, {name: "Angular", id: 3}])
 
-    const colorTitle = useRef();
-    const colorHex = useRef();
+    // Custom Hook to automatically reset the value of the input field
+    const useInput = (initialValue) => {
+        const [value, setValue] = useState(initialValue);
+        const reset = () => {
+            setValue(initialValue);
+        }
+        return [{value, onChange: (e) => setValue(e.target.value)}, reset];
+    }
+
+
+    const [colorTitle, resetColorTitle] = useInput("");
+    const [colorHex, resetColorHex] = useInput("#000000");
 
     const submitColor = (e) => {
         e.preventDefault();
-        const title = colorTitle.current.value;
-        const hex = colorHex.current.value;
-        alert(`New Color: ${title} ${hex}`)
-        colorTitle.current.value = "";
-        colorHex.current.value = "#000000";
+        alert(`New Color: ${colorTitle.value} ${colorHex.value}`);
+        resetColorTitle();
+        resetColorHex();
     }
 
     return (<div className="App">
@@ -72,8 +80,8 @@ function App() {
 
         <h4>Let's pick your favourite color!</h4>
         <form onSubmit={submitColor}>
-            <input type="text" placeholder="Color Title" ref={colorTitle}/>
-            <input type="color" placeholder="Color Hex" ref={colorHex}/>
+            <input type="text" placeholder="Color Title" {...colorTitle}/>
+            <input type="color" placeholder="Color Hex" {...colorHex}/>
             <button type="submit">Submit</button>
         </form>
 
