@@ -1,7 +1,5 @@
 export function Main() {
-    return (
-        <>
-            <p>Here we cook.</p>
-        </>
-    )
+    return (<>
+            <section>Here we cook.</section>
+        </>)
 }
