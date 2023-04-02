@@ -7,6 +7,11 @@
         <option name="port" value="3002" />
         <option name="scriptName" value="test" />
       </DevServerState>
+      <DevServerState>
+        <option name="packageJsonPath" value="$PROJECT_DIR$/20-react-more/package.json" />
+        <option name="port" value="3002" />
+        <option name="scriptName" value="test" />
+      </DevServerState>
     </option>
   </component>
 </project>
