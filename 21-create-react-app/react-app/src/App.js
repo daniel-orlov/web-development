@@ -5,7 +5,7 @@ const GitHubUser = (props) => {
     return <>
         <h2>My GitHub Profile</h2>
         <div className="github-profile">
-            <img height="200" src={props.data.avatar_url} alt="GitHub Profile Picture"/>
+            <img height="200" src={props.data.avatar_url} alt="GitHub Profile"/>
             <div className="info">
                 <div className="name">{props.data.name}</div>
                 <div className="company">{props.data.company}</div>
@@ -13,6 +13,32 @@ const GitHubUser = (props) => {
         </div>
     </>
 }
+
+const userFavourites = [
+    {name: "Favourite Frontend Framework", value: "React"},
+    {name: "Favourite Backend Language", value: "Golang"},
+    {name: "Favourite Database", value: "MongoDB"},
+    {name: "Favourite Editor", value: "Goland"},
+    {name: "Favourite Operating System", value: "MacOS"},
+    {name: "Favourite Programming Language", value: "Golang"},
+    {name: "Favourite Cloud Provider", value: "GCP"},
+    {name: "Favourite Cloud Service", value: "Cloud Run"},
+];
+
+function List({data, renderItem, renderEmpty}) {
+    return !data.length ? (
+        renderEmpty
+    ) : (
+        <ul>
+            {data.map((item) => (
+                <li key={item.name}>
+                    {renderItem(item)}
+                </li>
+            ))}
+        </ul>
+    );
+}
+
 
 function App() {
     const [tech, setTech] = useReducer((state, newState) => ({...state, ...newState}), {
@@ -116,6 +142,16 @@ function App() {
         {loading && <div>Loading...</div>}
         {error && <div>{error.message}</div>}
         {userData && <GitHubUser data={userData}/>}
+
+        <List
+            data={userFavourites}
+            renderEmpty={<p>This list is empty</p>}
+            renderItem={(item) => (
+                <>
+                    {item.name} - {item.value}
+                </>
+            )}
+        />
     </div>);
 }
 

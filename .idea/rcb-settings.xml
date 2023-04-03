@@ -12,6 +12,11 @@
         <option name="port" value="3002" />
         <option name="scriptName" value="test" />
       </DevServerState>
+      <DevServerState>
+        <option name="packageJsonPath" value="$PROJECT_DIR$/21-create-react-app/react-app/package.json" />
+        <option name="port" value="3000" />
+        <option name="scriptName" value="start" />
+      </DevServerState>
     </option>
   </component>
 </project>
