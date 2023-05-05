@@ -2,7 +2,7 @@ import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor DBank {
-  var currentBalance = 0;
+  stable var currentBalance = 0;
 
   let id = 3456781786567327168;
 
