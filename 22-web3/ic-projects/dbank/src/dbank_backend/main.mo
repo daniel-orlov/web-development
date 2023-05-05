@@ -24,6 +24,9 @@ actor DBank {
     // check if the amount is less than the current balance
     if (amount > currentBalance) {
       Debug.print "DBank: insufficient funds";
+      Debug.print "DBank: trying to withdraw: ";
+      Debug.print(debug_show(amount));
+      Debug.print "DBank: current balance:";  
       Debug.print(debug_show(currentBalance));
       return;
     };
