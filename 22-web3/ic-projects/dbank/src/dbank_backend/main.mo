@@ -1,10 +1,17 @@
 import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
+import Time "mo:base/Time";
 
 actor DBank {
   stable var currentBalance = 0;
 
+  let startTime = Time.now();
   let id = 3456781786567327168;
+
+  Debug.print "DBank: created";
+
+  Debug.print "DBank: start time:";
+  Debug.print(debug_show(startTime));
 
   Debug.print "DBank: current balance:";
   Debug.print(debug_show(currentBalance));
@@ -41,5 +48,11 @@ actor DBank {
   // EFFECT: returns the current balance
   public query func getBalance(): async Nat {
       return currentBalance;
+  };
+
+  // getId: () -> Nat
+  // EFFECT: returns the id of the bank
+  public query func getId(): async Nat {
+      return id;
   };
 };
