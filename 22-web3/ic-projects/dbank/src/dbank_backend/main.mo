@@ -17,4 +17,20 @@ actor DBank {
     Debug.print "DBank: updated balance";
     Debug.print(debug_show(currentBalance));
   };
+
+  // withdraw: Nat -> ()
+  // EFFECT: updates the current balance
+  public func withdraw(amount: Nat) {
+    // check if the amount is less than the current balance
+    if (amount > currentBalance) {
+      Debug.print "DBank: insufficient funds";
+      Debug.print(debug_show(currentBalance));
+      return;
+    };
+  
+    currentBalance -= amount;
+
+    Debug.print "DBank: updated balance";
+    Debug.print(debug_show(currentBalance));
+  };
 };
