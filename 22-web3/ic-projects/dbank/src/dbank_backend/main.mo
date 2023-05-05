@@ -36,4 +36,10 @@ actor DBank {
     Debug.print "DBank: updated balance";
     Debug.print(debug_show(currentBalance));
   };
+
+  // getBalance: () -> Nat
+  // EFFECT: returns the current balance
+  public query func getBalance(): async Nat {
+      return currentBalance;
+  };
 };
