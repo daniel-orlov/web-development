@@ -2,16 +2,15 @@ import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor DBank {
-  var currentBalance = 300;
-
-  currentBalance := 100;
+  var currentBalance = 0;
 
   let id = 3456781786567327168;
 
   Debug.print "DBank: current balance:";
   Debug.print(debug_show(currentBalance));
 
-  // Deposit
+  // topUp: Nat -> ()
+  // EFFECT: updates the current balance
   public func topUp(amount: Nat) {
     currentBalance += amount;
 
