@@ -6,7 +6,10 @@ actor DBank {
   currentValue := 100;
 
   let id = 3456781786567327168;
-  
+
   Debug.print "DBank: currentValue:";
   Debug.print(debug_show(currentValue));
+
+  Debug.print "DBank: id:";
+  Debug.print(debug_show(id));
 };
